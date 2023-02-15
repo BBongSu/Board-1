@@ -9,7 +9,7 @@
 <button type="button">+</button>
 <table>
     <thead>
-    <tr th:if="${#lists.size(result)}>0">
+    <tr>
         <th>No.</th>
         <th>Title</th>
         <th>Author</th>
@@ -17,17 +17,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>1</td>
-        <td><a href="#">Post 1</a></td>
-        <td>User 1</td>
-        <td>2022-01-01</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td><a href="#">Post 2</a></td>
-        <td>User 2</td>
-        <td>2022-01-02</td>
+    <tr th:each="res : ${result}">
+        <td th:text="${res.bd_idx}"></td>
+        <td th:text="${res.bd_title}"></td>
+        <td th:text="${res.bd_writer}"></td>
+        <td th:text="${res.bd_regdt}"></td>
     </tr>
     <!-- Additional rows for other posts -->
     </tbody>
